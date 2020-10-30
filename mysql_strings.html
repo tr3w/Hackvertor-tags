@@ -1,0 +1,331 @@
+<html>
+<head>
+<title>mysql_strings Hackvertor Tag PoC -- Massive Heavy Messy Obfuscation</title>
+<script>
+/**********************
+coded by @tr3w_
+technique created by FluxReiners
+shoutoutz: lightos, hkm, calderpwn, nitr0us, sirdarckcat, garethheyes
+***********************/
+
+cc= (function(){
+code = prompt();
+/*
+ num = function(n) {
+    return numbers[n][Math.floor(Math.random()*numbers[n].length)];
+}
+*/
+var strings = [
+		
+		// 0
+		 [  "0",  
+			"pi()-pi()",
+            "!pi()",
+            "false",
+            "(current_time^curtime())",
+            "@@new",
+            "log(-cos(pi()))"
+        ],
+		
+		//1
+	
+        [ 	"1",
+			"true",
+            "cos(!pi())",
+            "!!!pi()",
+            "sign(rand())"
+        ],
+		
+		//2
+        [	"2",
+			"!!!pi()--true"
+        ],
+		
+		//3
+        [   "3", 
+			"floor(pi())",
+            "coercibility(user())"
+        ],
+		
+		//4
+        [   "4", 
+			"ceil(pi())",
+            "coercibility(now())"
+        ],
+		
+		//5
+        [   "5", 
+			"floor(@@version)"
+        ],
+		
+		//6
+        [   "6", 
+			"ceil(@@version)"
+        ],
+		
+		//7
+        [	"7",
+			"ceil(pi()--pi())"
+        ],
+		
+		//8
+        [ 	"8",
+			"floor(pi()--@@version)",
+            "bit_length(ceil(pi()))"
+        ],
+		
+		//9
+        [   "9", 
+			"floor(pi()*pi())"
+        ],
+		
+		//10
+        [   "10", 
+			"ceil(pi()*pi())"
+        ],
+	
+	
+		
+		// a
+        [   "a",
+			"mid(dayname(from_days(405)),5,1)", // Friday
+			"mid(dayname(from_days(404)),7,1)", // Thursday
+			"mid(dayname(from_days(403)),8,1)", // Wednesday
+			"mid(dayname(from_days(401)),5,1)", // Monday
+			"mid(dayname(from_days(406)),2,1)", // Saturday
+			"mid(dayname(from_days(407)),5,1)", // Sunday
+			"mid(collation(!pi()),4,1)", // binary
+			"mid(dayname(from_days(402)),6,1)" // Tuesday
+			
+        ],
+		
+		//b
+        [    "b",
+			"mid(collation(!pi()),1,1)" // binary
+
+        ],
+
+		//c
+        [    "c",
+			"mid(collation(user()),14,1)" // utf8_general_ci
+
+        ],
+		
+		//d
+        [	"d",
+			"mid(dayname(from_days(403)),3,1)", // Wednesday
+			"mid(dayname(from_days(401)),4,1)", // Monday
+			"mid(dayname(from_days(402)),5,1)", // Tuesday
+			"mid(dayname(from_days(404)),6,1)", // Thursday
+			"mid(dayname(from_days(405)),4,1)", // Friday
+			"mid(dayname(from_days(406)),6,1)", // Saturday
+			"mid(dayname(from_days(407)),4,1)" // Sunday
+
+        ],
+        
+		//e
+		[	"e",
+			"mid(dayname(from_days(403)),2,1)", // Wednesday
+			"mid(collation(user()),7,1)", // utf8_general_ci
+			"mid(dayname(from_days(402)),3,1)", // Tuesday
+			"mid(@@version_comment,18,1)" // MySQL Community Server (GPL)		
+		
+		],
+		//f
+        [	"f",
+			"lower(mid(monthname(from_days(403)),1,1))"
+
+        ],
+        
+		//g
+		
+		[	"g",
+			"mid(collation(user()),6,1)" // utf8_general_ci
+
+        ],
+
+		//h
+		
+        [ 	"h",
+			"mid(dayname(from_days(404)),2,1)" // Thursday
+
+        ],
+
+		//i
+        [    "i",
+			"mid(collation(!pi()),2,1)", // binary
+			"mid(@@version_comment,13,1)", // MySQL Community Server (GPL)
+			"mid(dayname(from_days(405)),3,1)" // Friday
+		],
+
+		//j
+        [	"j",
+			"lower(mid(monthname(from_unixtime(95001)),1,1))"
+        ],
+ 
+		//k	
+		
+		[	"k",
+			"mid(collation(convert((1)/*!using*/koi8r)),1,1)" // Koir
+
+        ],
+		
+		//l
+		[	"l",
+			"mid(collation(user()),12,1)" // utf8_general_ci
+
+		],
+		
+		//m
+		[	"m",
+			"lower(mid(dayname(from_days(401)),1,1))", // Monday
+			"lower(mid(@@version_comment,1,1))" // MySQL Community Server (GPL)
+
+		],
+		
+		//n
+		[	"n",
+			"mid(dayname(from_days(407)),3,1)", // Sunday
+			"mid(dayname(from_days(401)),3,1)", // Monday
+			"mid(@@version_comment,12,1)", // MySQL Community Server (GPL)
+			"mid(collation(!pi()),3,1)", // binary
+			"mid(collation(user()),8,1)", // utf8_general_ci
+			"mid(dayname(from_days(403)),4,1)" // Wednesday // January
+
+		],
+		
+		//o
+		[	"o",
+			"mid(@@version_comment,8,1)", // MySQL Community Server (GPL)
+			"mid(dayname(from_days(401)),2,1)" // Monday
+		],
+		
+		//p
+		[	"p",
+			"mid(monthname(from_days(1201)),2,1)" // April
+
+		],
+		
+		//q
+		[	"q",
+			"mid(from_base64(reverse(0x3d455863)),1,1)" //q
+		],
+		
+		//r
+		[	"r",
+			"mid(dayname(from_days(406)),5,1)", // Saturday
+			"mid(dayname(from_days(404)),4,1)", // Thursday
+			"mid(collation(!pi()),5,1)", // binary
+			"mid(@@version_comment,19,1)", // MySQL Community Server (GPL)
+			"mid(dayname(from_days(405)),2,1)" // Friday
+
+		],
+		
+		//s
+		[	"s",
+			"mid(dayname(from_days(404)),5,1)", // Thursday
+			"mid(dayname(from_days(402)),4,1)", // Tuesday
+			"mid(dayname(from_days(403)),6,1)" // Wednesday
+		],
+		
+		//t
+		[	"t",
+			"mid(collation(user()),2,1)", // utf8_general_ci
+			"mid(@@version_comment,14,1)" // MySQL Community Server (GPL)
+			
+		],
+		
+		//u
+		[	"u",
+			"mid(dayname(from_days(406)),4,1)", // Saturday
+			"mid(dayname(from_days(404)),3,1)", // Thursday
+			"mid(collation(user()),1,1)", // utf8_general_ci
+			"mid(@@version_comment,11,1)", // MySQL Community Server (GPL)
+			"mid(dayname(from_days(402)),2,1)" // Tuesday 
+		],
+		
+		//v
+		[
+			"v",
+			"mid(@@version_comment,20,1)" // MySQL Community Server
+		],
+		
+		//w
+		[
+			"w",
+			"lower(mid(dayname(from_days(403)),1,1))" // January
+		],
+		
+		//x
+		[	"x",
+			"from_base64(reverse(0x3d3d4165))"
+		],
+		
+		//y
+		[
+			"y",
+			"mid(dayname(from_days(404)),8,1)", // Thursday
+			"mid(dayname(from_days(403)),9,1)", // Wednesday
+			"mid(dayname(from_days(402)),7,1)", // Tuesday
+			"mid(dayname(from_days(401)),6,1)", // Monday
+			"mid(dayname(from_days(405)),6,1)", // Friday
+			"mid(dayname(from_days(406)),8,1)", // Saturday
+			"mid(dayname(from_days(407)),6,1)", // Sunday
+			"mid(collation(!pi()),6,1)", // binary
+			"mid(@@version_comment,2,1)" // MySQL Community Server (GPL)
+
+		],
+		
+		//z
+		[	"z",
+			"from_base64(reverse(0x3d3d6765))"
+		]
+		
+    ];
+
+code = code.replace(/[\w\W]+/g, function(n){
+            
+			var s = n.split("");
+			var r = "reverse/*lpad*/(reverse/*coercibility()*/(concat/*ceil(pi())*/(0x00";
+			var c = 0;
+						
+			for (var i in s)
+			{
+				if (s[i].match(/[\W_]/g))
+				{
+					r += ',from_base64(\'' + btoa(s[i]) + '\')';
+				} else {
+					for (var j in strings)
+					{
+						if (s[i].toLowerCase() == strings[j][0])
+						{
+							var prng = Math.floor(Math.random()*strings[j].length);
+							if (prng == 0)
+									prng += 1;
+							
+							r += ",";
+							p = strings[j][prng];
+							
+							if (s[i].toUpperCase() == s[i])
+							{
+								p = "upper(" + p + ")";
+							}
+							r += p;
+						}
+					}
+				}
+			}
+			r += ")))";		
+			return r;
+    });
+
+    
+    return code
+})();
+
+document.write(cc)
+</script>
+</head>
+<body>
+</body>
+</html>
