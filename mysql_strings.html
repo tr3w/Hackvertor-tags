@@ -127,8 +127,8 @@ var strings = [
 		[	"e",
 			"mid(dayname(from_days(403)),2,1)", // Wednesday
 			"mid(collation(user()),7,1)", // utf8_general_ci
-			"mid(dayname(from_days(402)),3,1)", // Tuesday
-			"mid(@@version_comment,18,1)" // MySQL Community Server (GPL)		
+			"mid(dayname(from_days(402)),3,1)" // Tuesday
+				
 		
 		],
 		//f
@@ -154,7 +154,7 @@ var strings = [
 		//i
         [    "i",
 			"mid(collation(!pi()),2,1)", // binary
-			"mid(@@version_comment,13,1)", // MySQL Community Server (GPL)
+			
 			"mid(dayname(from_days(405)),3,1)" // Friday
 		],
 
@@ -178,8 +178,8 @@ var strings = [
 		
 		//m
 		[	"m",
-			"lower(mid(dayname(from_days(401)),1,1))", // Monday
-			"lower(mid(@@version_comment,1,1))" // MySQL Community Server (GPL)
+			"lower(mid(dayname(from_days(401)),1,1))" // Monday
+			
 
 		],
 		
@@ -187,7 +187,6 @@ var strings = [
 		[	"n",
 			"mid(dayname(from_days(407)),3,1)", // Sunday
 			"mid(dayname(from_days(401)),3,1)", // Monday
-			"mid(@@version_comment,12,1)", // MySQL Community Server (GPL)
 			"mid(collation(!pi()),3,1)", // binary
 			"mid(collation(user()),8,1)", // utf8_general_ci
 			"mid(dayname(from_days(403)),4,1)" // Wednesday // January
@@ -196,7 +195,6 @@ var strings = [
 		
 		//o
 		[	"o",
-			"mid(@@version_comment,8,1)", // MySQL Community Server (GPL)
 			"mid(dayname(from_days(401)),2,1)" // Monday
 		],
 		
@@ -216,7 +214,6 @@ var strings = [
 			"mid(dayname(from_days(406)),5,1)", // Saturday
 			"mid(dayname(from_days(404)),4,1)", // Thursday
 			"mid(collation(!pi()),5,1)", // binary
-			"mid(@@version_comment,19,1)", // MySQL Community Server (GPL)
 			"mid(dayname(from_days(405)),2,1)" // Friday
 
 		],
@@ -230,8 +227,7 @@ var strings = [
 		
 		//t
 		[	"t",
-			"mid(collation(user()),2,1)", // utf8_general_ci
-			"mid(@@version_comment,14,1)" // MySQL Community Server (GPL)
+			"mid(collation(user()),2,1)" // utf8_general_ci
 			
 		],
 		
@@ -240,14 +236,13 @@ var strings = [
 			"mid(dayname(from_days(406)),4,1)", // Saturday
 			"mid(dayname(from_days(404)),3,1)", // Thursday
 			"mid(collation(user()),1,1)", // utf8_general_ci
-			"mid(@@version_comment,11,1)", // MySQL Community Server (GPL)
 			"mid(dayname(from_days(402)),2,1)" // Tuesday 
 		],
 		
 		//v
 		[
 			"v",
-			"mid(@@version_comment,20,1)" // MySQL Community Server
+			"from_base64(reverse(0x3d3d6764))"
 		],
 		
 		//w
@@ -283,7 +278,7 @@ var strings = [
 		
     ];
 
-code = code.replace(/[\w\W]+/g, function(n){
+code = code.replace(/["'][\w\W]+['"]/g, function(n){
             
 			var s = n.split("");
 			var r = "reverse/*lpad*/(reverse/*coercibility()*/(concat/*ceil(pi())*/(0x00";
@@ -323,7 +318,7 @@ code = code.replace(/[\w\W]+/g, function(n){
     return code
 })();
 
-document.write(cc)
+document.write('<wbr>' + cc + '</wbr>')
 </script>
 </head>
 <body>
