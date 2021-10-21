@@ -278,7 +278,7 @@ var strings = [
 		
     ];
 
-code = code.replace(/["'][\w\W]+['"]/g, function(n){
+code = code.replace(/["'][\w\W]+?['"]/g, function(n){
             
 			var s = n.split("");
 			var r = "reverse/*lpad*/(reverse/*coercibility()*/(concat/*ceil(pi())*/(0x00";
@@ -317,8 +317,8 @@ code = code.replace(/["'][\w\W]+['"]/g, function(n){
     
     return code
 })();
-
-document.write('<wbr>' + cc + '</wbr>')
+document.style.wordWrap="break-word" 
+document.write(  cc )
 </script>
 </head>
 <body>
